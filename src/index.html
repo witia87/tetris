@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TETRIS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="header">
+    <div id="header-content">
+        <b>TETRIS</b>
+    </div>
+</div>
+<div id="tetris-container"> </div>
+<div id="footer">Press space to restart (at any time)</div>
+<script src="model/shapes/block-type.js"></script>
+<script src="model/shapes/shape.js"></script>
+<script src="model/shapes/shapes.factory.js"></script>
+<script src="model/states/base.state.js"></script>
+<script src="model/states/shape-creation.state.js"></script>
+<script src="model/states/shape-falling.state.js"></script>
+<script src="model/states/game-over.state.js"></script>
+<script src="model/states/game-states.js"></script>
+<script src="model/board.js"></script>
+<script src="model/scoring.js"></script>
+<script src="model/model.js"></script>
+<script src="model/model.factory.js"></script>
+<script src="view/pixi/pixi.min.js"></script>
+<script src="view/component.js"></script>
+<script src="view/block.component.js"></script>
+<script src="view/game-over.component.js"></script>
+<script src="view/player.controller.js"></script>
+<script src="view/score.component.js"></script>
+<script src="view/presentation.factory.js"></script>
+<script src="tetris.js"></script>
+
+<script>
+        createTetris(document.getElementById("tetris-container"));
+</script>
+</body>
+</html>
