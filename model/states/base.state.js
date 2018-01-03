@@ -12,8 +12,8 @@ export class BaseState
             for(let x = 0; x < pattern[y].length; x++) {
                 if(pattern[y][x] &&
                     (xOnBoard + x < 0 || xOnBoard + x >= this.board.width
-                    || yOnBoard + y < 0 || yOnBoard + y >= this.board.height
-                    || this.board.blocks[yOnBoard + y][xOnBoard + x] !== BlockType.BACKGROUND))
+                    || yOnBoard + y >= this.board.height // no yOnBoard + y < 0 checking
+                    || this.board.blocks[Math.max(0,yOnBoard + y)][xOnBoard + x] !== BlockType.BACKGROUND))
                 {
                     return false;
                 }
@@ -61,6 +61,10 @@ export class BaseState
                 }
             }
         }
+    }
+
+    update() {
+        return this;
     }
 
     moveShape(xOffset, yOffset)

@@ -1,15 +1,20 @@
 export class Scoring {
     constructor() {
-        this.score = 0;
         this.initialDelayInMiliseconds = 500;
-        this.delay = this.initialDelayInMiliseconds;
+        this.reset();
     }
 
     scoreLines(linesCount) {
-        this.score += Math.pow(linesCount * this.initialDelayInMiliseconds / this.delay, 2);
-        this.delay
-        = this.initialDelayInMiliseconds *
-            (1 - (this.score/(this.score + this.initialDelayInMiliseconds/10)));
+        this.score += Math.pow(linesCount * this.modifier, 2);
+        this.modifier *= Math.pow(1.1, linesCount);
+    }
 
+    get delay(){
+        return this.initialDelayInMiliseconds / this.modifier;
+    }
+
+    reset(){
+        this.score = 0;
+        this.modifier = 1;
     }
 }

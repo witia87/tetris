@@ -1,8 +1,8 @@
-import {GameObject} from "../engine/game-object.js";
+import {Component} from "./component.js";
 
-export class BlockComponent extends GameObject {
+export class BlockComponent extends Component {
     constructor(x, y, app, board, sprites) {
-        super();
+        super(app);
         this.x = x;
         this.y = y;
         this.app = app;
@@ -17,7 +17,7 @@ export class BlockComponent extends GameObject {
         app.stage.addChild(this.group);
     }
 
-    update(time) {
+    update(delta) {
         //Change the sprite's size
         this.group.width = this.app.renderer.width / this.board.width;
         this.group.height = this.app.renderer.height / this.board.height;

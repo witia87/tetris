@@ -1,4 +1,4 @@
-export class Controller
+export class PlayerController
 {
     constructor(model)
     {
@@ -23,6 +23,10 @@ export class Controller
         else if (e.keyCode == '39') {
             // right arrow
             this.model.moveRight();
+        }
+        else if (e.keyCode == '32') {
+            // space
+            this.model.restart();
         }
     }
 }

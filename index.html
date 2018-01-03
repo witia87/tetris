@@ -2,22 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Hello World</title>
+    <title>TETRIS</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div id="header">
+    <div id="header-content">
+        <b>TETRIS</b>
+    </div>
+</div>
 <div id="tetris-container"> </div>
-<script src="pixi/pixi.min.js"></script>
+<div id="footer">Press space to restart (at any time)</div>
+<script src="view/pixi/pixi.min.js"></script>
 <script type="module">
         import { createTetris } from "./tetris.js";
-        let type = "WebGL";
-        if (!PIXI.utils.isWebGLSupported()) {
-            type = "canvas";
-        }
-
-        PIXI.utils.sayHello(type);
-
-        let tetris = createTetris(document.getElementById("tetris-container"));
+        createTetris(document.getElementById("tetris-container"));
 </script>
 </body>
 </html>

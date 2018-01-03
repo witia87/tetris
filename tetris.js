@@ -1,4 +1,4 @@
-import {setupPresentation} from "./presentation/presentation.factory.js";
+import {setupPresentation} from "./view/presentation.factory.js";
 import {createModel} from "./model/model.factory.js";
 
 export function createTetris(container) {

@@ -14,6 +14,14 @@ export class Board {
         }
     }
 
+    restart(){
+        for (let y = 0; y < this.height; y++) {
+            for (let x = 0; x < this.width; x++) {
+                this.blocks[y][x] = BlockType.BACKGROUND;
+            }
+        }
+    }
+
     evaluateBoard()
     {
         let linesToRemove =
@@ -22,8 +30,7 @@ export class Board {
                     block => block !== BlockType.BACKGROUND ));
 
         linesToRemove.reverse().forEach(i => this.blocks.splice(i, 1));
-        linesToRemove.forEach(i => this.blocks.unshift(new Array(this.width).fill(BlockType.BACKGROUND)));
+        linesToRemove.forEach(() => this.blocks.unshift(new Array(this.width).fill(BlockType.BACKGROUND)));
         this.scoring.scoreLines(linesToRemove.length);
-
     }
 }

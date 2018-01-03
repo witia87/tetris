@@ -1,9 +1,11 @@
 import {BaseState} from "./base.state.js";
 import {ShapeCreationState} from "./shape-creation.state.js";
+import {GameStates} from "./game-states.js";
 
 export class ShapeFallingState extends BaseState{
     constructor(board, shape, xOnBoard, yOnBoard){
         super(board);
+        this.type = GameStates.SHAPE_FALLING;
         this.shape = shape;
         this.xOnBoard = xOnBoard;
         this.yOnBoard = yOnBoard;

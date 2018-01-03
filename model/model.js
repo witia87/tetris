@@ -1,13 +1,12 @@
-import {GameObject} from "../engine/game-object.js";
 import {ShapeCreationState} from "./states/shape-creation.state.js";
 
-export class Model extends GameObject {
+export class Model {
     constructor(board, scoring) {
-        super();
         this.board = board;
         this.scoring = scoring;
         this.currentState = new ShapeCreationState(board, scoring);
         this.lastUpdateTime = new Date();
+        window.requestAnimationFrame(()=> this.update())
     }
 
     update(){
@@ -16,6 +15,11 @@ export class Model extends GameObject {
             this.currentState = this.currentState.update();
             this.lastUpdateTime = new Date().getTime();
         }
+        window.requestAnimationFrame(()=> this.update())
+    }
+
+    get state(){
+        return this.currentState.type;
     }
 
     moveLeft()
@@ -41,5 +45,6 @@ export class Model extends GameObject {
     restart()
     {
         this.currentState = this.currentState.restart();
+        this.scoring.reset();
     }
 }
